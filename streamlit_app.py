@@ -17,10 +17,16 @@ st.markdown(
     body {background-color: #0E1117; color: #FFF;}
     .stSidebar {background-color: #111; color: #FFF;}
     .stDataFrame div.row_widget.stDataFrame {background-color: #111;}
+
+    /* Ubah teks date_input menjadi putih */
+    .stDateInput input, .stDateInput label {
+        color: #FFF;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # ==================== Koneksi Database ====================
 DB_PATH = os.path.join(os.path.dirname(__file__), "revenue.duckdb")
