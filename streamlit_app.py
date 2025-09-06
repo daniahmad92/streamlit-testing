@@ -70,6 +70,6 @@ else:
     pivot_df.index = pivot_df.index.strftime("%d/%m/%Y")
 
     # Format semua angka menjadi Rupiah (tanpa kumulatif)
-    pivot_df_formatted = pivot_df.applymap(lambda x: f"Rp {int(x):,}".replace(",", "."))
+    pivot_df_formatted = pivot_df.applymap(lambda x: f"{int(x):,}".replace(",", "."))
 
     st.dataframe(pivot_df_formatted, use_container_width=True)
