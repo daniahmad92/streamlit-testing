@@ -64,11 +64,13 @@ else:
 
     # Cumulative revenue per sekolah
     cum_df = pivot_df.cumsum()
-    pivot_df_cum = pivot_df.copy()
-    for col in pivot_df.columns:
-        pivot_df_cum[col] = cum_df[col]
+    pivot_df_cum = cum_df.copy()  # cumulative revenue
+
+    # Format semua angka menjadi Rupiah dengan titik sebagai pemisah ribuan
+    pivot_df_cum = pivot_df_cum.applymap(lambda x: f"{int(x):,}".replace(",", "."))
 
     st.dataframe(pivot_df_cum)
+
 
     # ==================== Grafik Perbandingan Revenue ====================
     st.subheader("Grafik Perbandingan Revenue Sekolah")
