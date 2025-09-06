@@ -47,7 +47,7 @@ else:
     kpi_cols = st.columns(len(selected_schools))
     for i, school in enumerate(selected_schools):
         total_rev = df_filtered[df_filtered['school'] == school]['revenue'].sum()
-        total_rev_str = f"Rp {int(total_rev):,}".replace(",", ".")
+        total_rev_str = f"{int(total_rev):,}".replace(",", ".")
         kpi_cols[i].markdown(card_template.format(school=school, revenue=total_rev_str), unsafe_allow_html=True)
 
     # ==================== Tabel Gabungan per Tanggal ====================
