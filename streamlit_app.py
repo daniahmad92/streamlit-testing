@@ -57,8 +57,8 @@ else:
         total_rev_str = f"Rp {int(total_rev):,}".replace(",", ".")
         kpi_cols[i].metric(label=school, value=total_rev_str)
 
-    # ==================== Tabel Gabungan per Tanggal ====================
-    st.subheader("📊 Resume Revenue Gabungan per Tanggal")
+    # ==================== Tabel Revenue per Tanggal ====================
+    st.subheader("📊 Revenue per Tanggal per Sekolah")
     pivot_df = df_filtered.pivot_table(
         index='date',
         columns='school',
@@ -69,10 +69,7 @@ else:
     # Format tanggal dd/mm/yyyy
     pivot_df.index = pivot_df.index.strftime("%d/%m/%Y")
 
-    # Cumulative revenue per sekolah
-    pivot_df_cum = pivot_df.cumsum()
+    # Format semua angka menjadi Rupiah (tanpa kumulatif)
+    pivot_df_formatted = pivot_df.applymap(lambda x: f"Rp {int(x):,}".replace(",", "."))
 
-    # Format semua angka menjadi Rupiah
-    pivot_df_cum = pivot_df_cum.applymap(lambda x: f"Rp {int(x):,}".replace(",", "."))
-
-    st.dataframe(pivot_df_cum, use_container_width=True)
+    st.dataframe(pivot_df_formatted, use_container_width=True)
