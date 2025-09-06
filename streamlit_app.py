@@ -40,8 +40,8 @@ else:
         margin: 5px;
         box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
         ">
-        <h3>{school}</h3>
-        <h2>{revenue}</h2>
+        <h5>{revenue}</h5>
+        <h2>{school}</h2>
     </div>
     """
     kpi_cols = st.columns(len(selected_schools))
