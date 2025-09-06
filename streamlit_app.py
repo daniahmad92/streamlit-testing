@@ -18,14 +18,23 @@ st.markdown(
     .stSidebar {background-color: #111; color: #FFF;}
     .stDataFrame div.row_widget.stDataFrame {background-color: #111;}
 
-    /* Ubah teks date_input menjadi putih */
-    .stDateInput input, .stDateInput label {
-        color: #FFF;
+    /* Styling input di sidebar */
+    .stDateInput input {
+        background-color: #222 !important;
+        color: #FFF !important;
+    }
+    .stDateInput label {
+        color: #FFF !important;
+    }
+    .stMultiSelect, .stTextInput, .stNumberInput input {
+        background-color: #222 !important;
+        color: #FFF !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 
 # ==================== Koneksi Database ====================
