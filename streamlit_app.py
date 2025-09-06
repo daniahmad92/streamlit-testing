@@ -76,9 +76,3 @@ else:
     pivot_df_cum = pivot_df_cum.applymap(lambda x: f"Rp {int(x):,}".replace(",", "."))
 
     st.dataframe(pivot_df_cum, use_container_width=True)
-
-    # ==================== Grafik Perbandingan Revenue ====================
-    st.subheader("📈 Grafik Perbandingan Revenue Sekolah")
-    comparison_df = df_filtered.groupby('school')['revenue'].sum().reset_index()
-    comparison_df['revenue'] = comparison_df['revenue'].apply(lambda x: int(x))
-    st.bar_chart(comparison_df.set_index('school'))
